@@ -97,7 +97,7 @@ fun_llh = function(a,B,l){
 #______________________________________________________________________________________________________________#
 
 library("moments")
-# initial parameters
+# initial parameters for the EM algorithm
 ini_xi = x_bar
 ini_Omega = S
 ini_lambda =  skewness(X[,1])
