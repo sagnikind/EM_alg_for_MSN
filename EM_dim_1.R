@@ -40,6 +40,9 @@ for(i in 1:n){
     X[i,] = -Y[i,] + xi
   }
 }
+# X above is the simulated data matrix. To use this code for a real dataset, overwrite the variable X with 
+# the real data matrix after this line. The real data matrix must be of the dimension n-by-p, where n is the
+# number of samples and p is the dimension of the observations.
 
 #______________________________________________________________________________________________________________
 
@@ -140,6 +143,7 @@ t = nlm(f_theta,ini_xi)
 fin_xi = t$estimate[1]
 fin_Omega = sqrt(((x_bar-fin_xi)^2 + S)/(P - fin_lambda^2))
 
+# Stopping criteria for the EM algorithm
 while( abs((fun_llh(fin_xi,fin_Omega,fin_lambda) / fun_llh(ini_xi,ini_Omega,ini_lambda)) - 1) > 10^-9){
   ini_xi = fin_xi
   ini_Omega = fin_Omega
